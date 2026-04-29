@@ -31,13 +31,19 @@
         </properties>
     </rule>
 
-    <!-- Allow short array syntax -->
-    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <!-- Allow short array syntax [] — preferred over long array() for PSR-4 OOP code -->
+    <rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Universal.Arrays.DisallowShortArraySyntax">
+        <severity>0</severity>
+    </rule>
 
-    <!-- PSR-4 class file names -->
+    <!-- PSR-4 requires PascalCase filenames — disable the lowercase-filename rule for src/php/ -->
     <rule ref="WordPress.Files.FileName">
         <properties>
             <property name="strict_class_file_names" value="false"/>
         </properties>
+        <exclude-pattern>*/src/php/*</exclude-pattern>
     </rule>
 </ruleset>
