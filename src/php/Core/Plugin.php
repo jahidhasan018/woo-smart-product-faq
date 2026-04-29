@@ -27,6 +27,9 @@ use WooSmartFaq\CPT\FAQ_Post_Type;
 use WooSmartFaq\CPT\FAQ_Category_Taxonomy;
 use WooSmartFaq\CPT\FAQ_Tag_Taxonomy;
 use WooSmartFaq\i18n\I18n;
+use WooSmartFaq\Cache\FAQ_Cache;
+use WooSmartFaq\Repository\FAQ_Repository;
+use WooSmartFaq\Repository\Settings_Repository;
 
 /**
  * Main plugin class.
@@ -46,6 +49,30 @@ class Plugin {
 	private string $version;
 
 	/**
+	 * Cache layer instance.
+	 *
+	 * @since 1.0.0
+	 * @var FAQ_Cache
+	 */
+	private FAQ_Cache $cache;
+
+	/**
+	 * FAQ repository instance.
+	 *
+	 * @since 1.0.0
+	 * @var FAQ_Repository
+	 */
+	private FAQ_Repository $faq_repository;
+
+	/**
+	 * Settings repository instance.
+	 *
+	 * @since 1.0.0
+	 * @var Settings_Repository
+	 */
+	private Settings_Repository $settings_repository;
+
+	/**
 	 * Sets up the plugin version from the constant.
 	 *
 	 * Private — use Plugin::instance() to obtain the singleton.
@@ -53,7 +80,12 @@ class Plugin {
 	 * @since 1.0.0
 	 */
 	private function __construct() {
-		$this->version = defined( 'WSF_VERSION' ) ? WSF_VERSION : '1.0.0';
+		global $wpdb;
+
+		$this->version             = defined( 'WSF_VERSION' ) ? WSF_VERSION : '1.0.0';
+		$this->cache               = new FAQ_Cache();
+		$this->faq_repository      = new FAQ_Repository( $wpdb, $this->cache );
+		$this->settings_repository = new Settings_Repository();
 	}
 
 	/**
@@ -113,5 +145,35 @@ class Plugin {
 	 */
 	public function get_version(): string {
 		return $this->version;
+	}
+
+	/**
+	 * Returns the FAQ cache instance.
+	 *
+	 * @since 1.0.0
+	 * @return FAQ_Cache
+	 */
+	public function get_cache(): FAQ_Cache {
+		return $this->cache;
+	}
+
+	/**
+	 * Returns the FAQ repository instance.
+	 *
+	 * @since 1.0.0
+	 * @return FAQ_Repository
+	 */
+	public function get_faq_repository(): FAQ_Repository {
+		return $this->faq_repository;
+	}
+
+	/**
+	 * Returns the settings repository instance.
+	 *
+	 * @since 1.0.0
+	 * @return Settings_Repository
+	 */
+	public function get_settings_repository(): Settings_Repository {
+		return $this->settings_repository;
 	}
 }
