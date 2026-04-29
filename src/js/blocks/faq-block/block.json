@@ -1,0 +1,31 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "wsf/faq-block",
+    "version": "1.0.0",
+    "title": "Smart FAQ",
+    "category": "woocommerce",
+    "icon": "format-chat",
+    "description": "Display product FAQs using WooCommerce Smart FAQ.",
+    "keywords": ["faq", "product", "woocommerce", "accordion"],
+    "textdomain": "woo-smart-product-faq",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"],
+        "className": true
+    },
+    "attributes": {
+        "productId": { "type": "integer", "default": 0 },
+        "categoryId": { "type": "integer", "default": 0 },
+        "tagId": { "type": "integer", "default": 0 },
+        "showGlobal": { "type": "boolean", "default": false },
+        "layout": { "type": "string", "default": "accordion" },
+        "columns": { "type": "integer", "default": 1 },
+        "openFirst": { "type": "boolean", "default": false },
+        "limit": { "type": "integer", "default": -1 }
+    },
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css"
+}

@@ -1,0 +1,22 @@
+{
+    "core": "WordPress/WordPress#6.8",
+    "phpVersion": "8.1",
+    "plugins": [
+        ".",
+        "https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip",
+        "https://downloads.wordpress.org/plugin/query-monitor.latest-stable.zip"
+    ],
+    "themes": [
+        "https://downloads.wordpress.org/theme/storefront.latest-stable.zip"
+    ],
+    "config": {
+        "WP_DEBUG": true,
+        "WP_DEBUG_LOG": true,
+        "WP_DEBUG_DISPLAY": false,
+        "SCRIPT_DEBUG": true,
+        "SAVEQUERIES": true
+    },
+    "mappings": {
+        "wp-content/plugins/woo-smart-product-faq": "."
+    }
+}

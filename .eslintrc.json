@@ -1,0 +1,11 @@
+{
+    "extends": ["plugin:@wordpress/eslint-plugin/recommended"],
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "rules": {
+        "no-console": "warn",
+        "react/prop-types": "off"
+    }
+}

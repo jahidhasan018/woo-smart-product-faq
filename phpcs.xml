@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ruleset name="WooSmartFaq">
+    <description>WooCommerce Smart FAQ — WordPress Coding Standards</description>
+
+    <!-- Scan these files/directories -->
+    <file>woo-smart-product-faq.php</file>
+    <file>uninstall.php</file>
+    <file>src/php/</file>
+    <file>templates/</file>
+
+    <!-- Exclude build artifacts, vendor, and node_modules -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/assets/*</exclude-pattern>
+    <exclude-pattern>*/tests/*</exclude-pattern>
+
+    <!-- Use WordPress-Extra (includes WordPress-Core) and WordPress-Docs -->
+    <rule ref="WordPress-Extra"/>
+    <rule ref="WordPress-Docs"/>
+
+    <!-- PHP version compatibility -->
+    <config name="minimum_supported_wp_version" value="6.4"/>
+    <config name="testVersion" value="8.1-"/>
+
+    <!-- Plugin-specific text domain -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="woo-smart-product-faq"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Allow short array syntax -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+    <!-- PSR-4 class file names -->
+    <rule ref="WordPress.Files.FileName">
+        <properties>
+            <property name="strict_class_file_names" value="false"/>
+        </properties>
+    </rule>
+</ruleset>

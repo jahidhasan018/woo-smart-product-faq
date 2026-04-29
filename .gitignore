@@ -1,0 +1,42 @@
+# === Compiled Assets ===
+assets/
+
+# === Dependencies ===
+vendor/
+node_modules/
+
+# === Build Cache ===
+.phpunit.cache/
+coverage/
+coverage.xml
+playwright-report/
+
+# === WordPress Test Suite ===
+/tmp/wordpress/
+/tmp/wordpress-tests-lib/
+
+# === Environment Files ===
+docker/.env
+.env
+
+# === Logs ===
+*.log
+error.log
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+
+# === IDE & Editor ===
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# === Agent Skills (local only — not for GitHub) ===
+.github/copilot-instructions.md
+.github/instructions/
+
+# === npm/composer lock files (commit these for plugins targeting WP.org) ===
+# composer.lock intentionally committed
+# package-lock.json intentionally committed
