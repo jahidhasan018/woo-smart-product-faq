@@ -1,13 +1,13 @@
 name: E2E — Playwright Tests
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  schedule:
+#on:
+  #push:
+    #branches: [main]
+  #pull_request:
+    #branches: [main]
+  #schedule:
     # Run E2E nightly at 2am UTC
-    - cron: "0 2 * * *"
+    # - cron: "0 2 * * *"
 
 jobs:
   e2e:
